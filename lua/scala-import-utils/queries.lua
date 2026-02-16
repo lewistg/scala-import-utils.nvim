@@ -32,6 +32,14 @@ local _queries = {
         ]]
 		return vim.treesitter.query.parse("scala", query_src)
 	end,
+    trait_identifier_query = function()
+		local query_src = [[
+        (compilation_unit
+            (trait_definition
+                name: (identifier) @trait-name))
+        ]]
+		return vim.treesitter.query.parse("scala", query_src)
+    end,
 	import_query = function()
 		local query_src = [[
         (compilation_unit (import_declaration) @import-declaration)

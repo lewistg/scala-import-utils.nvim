@@ -51,6 +51,7 @@ function M.get_fully_qualified_identifier(source, position)
 	local identifier_queries = {
 		queries.class_identifier_query,
 		queries.object_identifier_query,
+		queries.trait_identifier_query,
 	}
 
 	---@type string|nil
@@ -60,7 +61,6 @@ function M.get_fully_qualified_identifier(source, position)
 		else
 			---@type string|nil
 			for id, node, metadata in query:iter_captures(tree:root(), source) do
-				vim.print(node)
 				if node_contains_position(node, position) then
 					return vim.treesitter.get_node_text(node, source)
 				end
