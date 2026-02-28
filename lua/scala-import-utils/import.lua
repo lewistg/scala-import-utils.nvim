@@ -72,7 +72,7 @@ function Import.compare_paths(path1, path2)
 	end
 	if #path1 > #path2 then
 		return 1
-	elseif #path2 < #path2 then
+	elseif #path1 < #path2 then
 		return -1
 	end
 	return 0
